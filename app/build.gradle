@@ -95,7 +95,7 @@ dependencies {
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.2'
 
     // Audio recording/playback waveform (chat voice notes ke liye)
-    implementation 'com.github.massoudss:waveformSeekBar:6.0.0'
+    
 
     // Circle image (profile pics)
     implementation 'de.hdodenhof:circleimageview:3.1.0'
