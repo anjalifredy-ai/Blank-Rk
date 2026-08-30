@@ -1,0 +1,53 @@
+name: Build BLANK RK APK
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Create local.properties with API key
+        run: echo "YOUTUBE_API_KEY=${{ secrets.YOUTUBE_API_KEY }}" > local.properties
+
+      - name: Generate debug keystore
+        run: |
+          keytool -genkeypair -v \
+            -keystore blankrk-release-key.jks \
+            -keyalg RSA -keysize 2048 -validity 10000 \
+            -alias blankrk \
+            -storepass blankrk123 \
+            -keypass blankrk123 \
+            -dname "CN=BlankRK, OU=Dev, O=BlankRK, L=City, S=State, C=IN"
+
+      - name: Build release APK
+        run: |
+          ./gradlew assembleRelease \
+            -Pandroid.injected.signing.store.file=$(pwd)/blankrk-release-key.jks \
+            -Pandroid.injected.signing.store.password=blankrk123 \
+            -Pandroid.injected.signing.key.alias=blankrk \
+            -Pandroid.injected.signing.key.password=blankrk123
+
+      - name: Upload APK to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: BLANK RK Build ${{ github.run_number }}
+          files: app/build/outputs/apk/release/app-release.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
