@@ -1,0 +1,12 @@
+<resources>
+    <color name="bg_primary">#0A0A0A</color>
+    <color name="bg_secondary">#161616</color>
+    <color name="bg_card">#1E1E1E</color>
+    <color name="accent">#FFA726</color>
+    <color name="accent_dark">#F57C00</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0B0</color>
+    <color name="chat_bubble_sent">#FFA726</color>
+    <color name="chat_bubble_received">#262626</color>
+    <color name="online_green">#4CAF50</color>
+</resources>
