@@ -98,7 +98,7 @@ dependencies {
     implementation 'com.github.massoudss:waveformSeekBar:6.0.0'
 
     // Circle image (profile pics)
-    implementation 'de.hdodenhof.circleimageview:3.1.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
