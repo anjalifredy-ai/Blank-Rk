@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.blankrk.app.BuildConfig
 import com.blankrk.app.databinding.FragmentSearchBinding
-import com.blankrk.app.network.RetrofitClient
+import com.blankrk.app.data.network.RetrofitClient
 import kotlinx.coroutines.launch
 
 class SearchFragment : Fragment() {
