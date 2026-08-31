@@ -50,7 +50,7 @@ class SearchFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             try {
                 val response = RetrofitClient.youTubeApiService.searchShorts(
-                    q = query,
+                    query = query,
                     apiKey = BuildConfig.YOUTUBE_API_KEY
                 )
                 val results = response.items.map {
