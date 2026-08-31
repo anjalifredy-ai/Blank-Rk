@@ -2,7 +2,7 @@ package com.blankrk.app.data.repository
 
 import com.blankrk.app.BuildConfig
 import com.blankrk.app.data.model.ShortVideo
-import com.blankrk.app.network.RetrofitClient
+import com.blankrk.app.data.network.RetrofitClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
