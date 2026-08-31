@@ -16,8 +16,7 @@ class ReelsRepository {
 
     suspend fun fetchShorts(pageToken: String? = null): Pair<List<ShortVideo>, String?> {
         val apiKey = BuildConfig.YOUTUBE_API_KEY
-
-        val searchResponse = api.searchShorts(pageToken = pageToken, apiKey = apiKey)
+        val searchResponse = api.searchShorts(query = "trending", pageToken = pageToken, apiKey = apiKey)
         val videoIds = searchResponse.items.joinToString(",") { it.id.videoId }
 
         if (videoIds.isEmpty()) return Pair(emptyList(), null)
