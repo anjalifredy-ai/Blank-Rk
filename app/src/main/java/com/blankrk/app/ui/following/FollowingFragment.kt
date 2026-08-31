@@ -70,7 +70,7 @@ class FollowingFragment : Fragment() {
                 val allVideos = mutableListOf<ShortVideo>()
                 for (channelId in channelIds.take(10)) { // quota safety
                     val response = RetrofitClient.youTubeApiService.searchShorts(
-                        q = "",
+                        query = "",
                         apiKey = com.blankrk.app.BuildConfig.YOUTUBE_API_KEY
                     )
                     // Note: proper channel-specific fetch uses channelId param;
