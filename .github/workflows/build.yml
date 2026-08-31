@@ -49,11 +49,8 @@ jobs:
             -Pandroid.injected.signing.key.alias=blankrk \
             -Pandroid.injected.signing.key.password=blankrk123
 
-      - name: Upload APK to GitHub Release
-        uses: softprops/action-gh-release@v2
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
         with:
-          tag_name: build-${{ github.run_number }}
-          name: BLANK RK Build ${{ github.run_number }}
-          files: app/build/outputs/apk/release/app-release.apk
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: blank-rk-apk
+          path: app/build/outputs/apk/release/app-release.apk
