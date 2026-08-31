@@ -13,8 +13,8 @@ data class YouTubeSearchItem(
 )
 
 data class YouTubeVideoId(
-    @SerializedName("videoId") val videoId: String?,
-    @SerializedName("channelId") val channelId: String?
+    @SerializedName("videoId") val videoId: String = "",
+    @SerializedName("channelId") val channelId: String? = null
 )
 
 data class YouTubeSnippet(
