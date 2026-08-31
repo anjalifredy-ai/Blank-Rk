@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.blankrk.app.data.model.ShortVideo
 import com.blankrk.app.databinding.FragmentFollowingBinding
-import com.blankrk.app.network.RetrofitClient
+import com.blankrk.app.data.network.RetrofitClient
 import com.blankrk.app.ui.reels.ReelsAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
