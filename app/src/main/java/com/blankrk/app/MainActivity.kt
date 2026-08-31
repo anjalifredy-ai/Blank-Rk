@@ -9,6 +9,7 @@ import com.blankrk.app.ui.following.FollowingFragment
 import com.blankrk.app.ui.profile.ProfileFragment
 import com.blankrk.app.ui.reels.ReelsFragment
 import com.blankrk.app.ui.search.SearchFragment
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +19,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        if (FirebaseAuth.getInstance().currentUser == null) {
+            FirebaseAuth.getInstance().signInAnonymously()
+        }
 
         if (savedInstanceState == null) {
             loadFragment(ReelsFragment())
