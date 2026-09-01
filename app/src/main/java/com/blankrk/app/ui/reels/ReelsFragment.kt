@@ -77,9 +77,8 @@ class ReelsFragment : Fragment() {
                     }
                 }
             } catch (e: Exception) {
-    e.printStackTrace()
-    android.widget.Toast.makeText(requireContext(), "Error: ${e.message}", android.widget.Toast.LENGTH_LONG).show()
-            }
+                e.printStackTrace()
+                android.widget.Toast.makeText(requireContext(), "Error: ${e.message}", android.widget.Toast.LENGTH_LONG).show()
             } finally {
                 isLoading = false
                 binding.loadingSpinner.visibility = View.GONE
