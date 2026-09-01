@@ -13,12 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!-- Invisible touch-catcher to prevent user from tapping into YouTube's own controls -->
-    <View
-        android:id="@+id/tapCatcher"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent" />
 
     <!-- Bottom gradient for text readability -->
     <View
