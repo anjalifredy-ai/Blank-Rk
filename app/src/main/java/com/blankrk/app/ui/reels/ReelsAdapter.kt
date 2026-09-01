@@ -1,4 +1,3 @@
-private var youTubePlayer: YouTubePlayer? = null
 package com.blankrk.app.ui.reels
 
 import android.view.LayoutInflater
@@ -66,6 +65,7 @@ class ReelsAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         private var youTubePlayer: YouTubePlayer? = null
+        private var isPlayerInitialized = false
 
         fun bind(item: ShortVideo, position: Int) {
             binding.channelTitle.text = "@${item.channelTitle}"
@@ -94,6 +94,11 @@ class ReelsAdapter(
         }
 
         private fun setupPlayer(videoId: String) {
+            if (isPlayerInitialized) {
+                youTubePlayer?.cueVideo(videoId, 0f)
+                return
+            }
+
             binding.youtubePlayerView.let { playerView ->
                 (binding.root.context as? androidx.lifecycle.LifecycleOwner)?.lifecycle
                     ?.addObserver(playerView)
@@ -110,6 +115,7 @@ class ReelsAdapter(
                 playerView.initialize(object : AbstractYouTubePlayerListener() {
                     override fun onReady(player: YouTubePlayer) {
                         youTubePlayer = player
+                        isPlayerInitialized = true
                         player.cueVideo(videoId, 0f)
                     }
                 }, iframeOptions)
