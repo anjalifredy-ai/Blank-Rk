@@ -1,3 +1,4 @@
+private var youTubePlayer: YouTubePlayer? = null
 package com.blankrk.app.ui.reels
 
 import android.view.LayoutInflater
